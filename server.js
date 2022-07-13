@@ -1,17 +1,17 @@
 const express=require("express");
-const { del } = require("express/lib/application");
 const app=express()
 const {createServer}=require("http")
-const {Server}=require("socket.io")
 const server=createServer(app);
 const dotenv=require("dotenv")
 dotenv.config()
 
-const io=new Server(server,{cors:{origin:"*"}})
-
 server.listen(process.env.PORT,()=>{
     console.log(`Listening to port ${process.env.PORT}`)
 });
+
+const {Server}=require("socket.io")
+
+const io=new Server(server,{cors:{origin:"*"}})
 
 const users={}
 
