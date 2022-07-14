@@ -22,7 +22,7 @@ io.on("connection",(socket)=>{
    })
 
    socket.on("send-msg",data=>{
-       socket.broadcast.emit("send-msg",data)
+       socket.broadcast.emit("send-msg",{message:data,name:users[socket.id]})
    })
 
     socket.on("disconnect",()=>{
